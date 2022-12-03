@@ -31,6 +31,11 @@ func searchfirst(array [elem]int, tofind int) (int, bool) {
 	var index int
 	result := false
 	for i, value := range array {
+		if value > tofind {
+			break
+		} //если число больше искомого, то нет смысла продолжать поиск по отсортированному массиву
+		//сложность алгоритма в лучшем случае O(2) - тогда поиск остановится на втором элементе
+		//сложность алгоритма в худшем случае О(n) - тогда нужно пройти весь массив до конца
 		if value == tofind {
 			index = i
 			result = true
